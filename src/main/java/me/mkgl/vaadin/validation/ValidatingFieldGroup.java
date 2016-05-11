@@ -1,4 +1,4 @@
-package me.mkgl.sandbox.vaadin.validation;
+package me.mkgl.vaadin.validation;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.fieldgroup.FieldGroup;

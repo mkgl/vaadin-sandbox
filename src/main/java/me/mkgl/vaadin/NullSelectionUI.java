@@ -1,4 +1,4 @@
-package me.mkgl.sandbox.vaadin;
+package me.mkgl.vaadin;
 
 import java.util.Arrays;
 import java.util.List;

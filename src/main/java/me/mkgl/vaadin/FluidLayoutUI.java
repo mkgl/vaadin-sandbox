@@ -1,4 +1,4 @@
-package me.mkgl.sandbox.vaadin;
+package me.mkgl.vaadin;
 
 import javax.servlet.annotation.WebServlet;
 

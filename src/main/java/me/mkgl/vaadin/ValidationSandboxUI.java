@@ -1,4 +1,4 @@
-package me.mkgl.sandbox.vaadin;
+package me.mkgl.vaadin;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -23,7 +23,7 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 
 import lombok.Data;
-import me.mkgl.sandbox.vaadin.validation.ValidatingFieldGroup;
+import me.mkgl.vaadin.validation.ValidatingFieldGroup;
 
 @Theme("valo")
 public class ValidationSandboxUI extends UI {

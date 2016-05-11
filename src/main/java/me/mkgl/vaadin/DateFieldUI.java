@@ -1,4 +1,4 @@
-package me.mkgl.sandbox.vaadin;
+package me.mkgl.vaadin;
 
 import static com.vaadin.server.Sizeable.Unit.PIXELS;
 import static java.util.stream.Collectors.*;
