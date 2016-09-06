@@ -1,0 +1,104 @@
+$mgnl-foreground: #fff;
+
+$v-font-family: Verdana, sans-serif;
+$v-font-size: 13px;
+$v-app-background-color: #e0e0e0;
+$v-background-color: $mgnl-foreground;
+//$v-background-color: #689600;
+$v-focus-color: #93bbc4;
+$v-focus-style: 0 0 0 1px $v-focus-color;
+//$valo-menu-background-color: darken($v-focus-color, 10%);
+$v-border: 1px solid v-shade;
+$v-border-radius: 0px;
+$v-bevel: false;
+$v-gradient: false;
+$v-shadow: false;
+
+$v-textfield-background-color: $mgnl-foreground;
+
+//$v-textfield-bevel: false;
+//$v-textfield-shadow: false;
+//$v-textfield-border: 1px solid v-shade;
+//$v-link-text-decoration: none;
+//$v-overlay-shadow: 0 0 0 2px #000;
+//$v-overlay-border-width: 2px; // For IE8
+//$v-window-shadow: $v-overlay-shadow;
+//$v-selection-overlay-background-color: #fff;
+//$v-selection-overlay-padding-horizontal: 0;
+//$v-selection-overlay-padding-vertical: 6px;
+//$v-panel-border: 2px solid v-shade;
+
+$v-grid-header-background-color: #efefef;
+$v-grid-header-font-size: $v-font-size;
+
+$v-grid-border-size: 0;
+$v-grid-border: $v-grid-border-size none;
+
+$v-grid-row-background-color: $mgnl-foreground;
+$v-grid-row-stripe-background-color: $mgnl-foreground;
+$v-grid-cell-vertical-border: $v-grid-border;
+$v-grid-cell-horizontal-border: 1px dashed #d1d1d1;
+$v-grid-row-selected-background-color: #666;
+
+//$v-grid-row-focused-border: 1px solid;
+
+@import "../valo/valo";
+
+@mixin grid {
+  @include valo;
+
+  .v-textfield {
+    border-color: #c1c1c1;
+  }
+
+  .v-grid-row-selected > .v-grid-cell {
+    color: $mgnl-foreground;
+    text-shadow: none;
+    border-color: adjust-color(#666, $lightness: 27.5%);
+  }
+
+  .v-grid-header {
+    margin-bottom: 1px;
+  }
+
+  // Disable cell focus
+  .v-grid-cell-focused {
+    position: static;
+
+    &::before {
+      content: none;
+    }
+  }
+  .v-grid:focus .v-grid-cell-focused::before {
+    display: none;
+  }
+
+  // Replace it with row focus
+  .v-grid-row-focused {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: $v-grid-cell-focused-border;
+      display: none;
+      pointer-events: none;
+      z-index: 11;
+    }
+  }
+  .v-grid:focus .v-grid-row-focused::before {
+    display: block;
+  }
+  .v-grid.v-disabled:focus .v-grid-row-focused::before {
+    display: none;
+  }
+
+  // Disable shadow next to checkbox column (frozen)
+  .v-grid-cell.frozen {
+    box-shadow: none;
+  }
+}
