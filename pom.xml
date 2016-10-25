@@ -9,7 +9,7 @@
 
   <properties>
     <javaVersion>1.8</javaVersion>
-    <vaadinVersion>7.6.1</vaadinVersion>
+    <vaadinVersion>7.7.3</vaadinVersion>
   </properties>
 
   <dependencies>
@@ -83,7 +83,7 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.14.8</version>
+      <version>1.16.8</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
