@@ -67,32 +67,32 @@ public class DateFieldUI extends UI {
         Optional<TimeZone> timeZone = timeZoneCandidates.stream().findFirst();
         System.out.println(timeZone);
 
-        DateField testDate = new PopupDateField("Date");
-        testDate.setResolution(Resolution.MINUTE);
-        testDate.setWidth(400, PIXELS);
-        testDate.addValueChangeListener(this::logDate);
+        DateField dateField = new PopupDateField("Date");
+        dateField.setResolution(Resolution.MINUTE);
+        dateField.setWidth(400, PIXELS);
+        dateField.addValueChangeListener(this::logDate);
 
-        ComboBox testTimeZone = new ComboBox("Time zone", new BeanItemContainer<>(TimeZone.class, timeZoneCandidates));
-        testTimeZone.setItemCaptionMode(ItemCaptionMode.PROPERTY);
-        testTimeZone.setItemCaptionPropertyId("ID");
-        testTimeZone.setNullSelectionAllowed(false);
-        testTimeZone.setFilteringMode(FilteringMode.CONTAINS);
-        testTimeZone.addValueChangeListener(e -> {
+        ComboBox timeZoneField = new ComboBox("Time zone", new BeanItemContainer<>(TimeZone.class, timeZoneCandidates));
+        timeZoneField.setItemCaptionMode(ItemCaptionMode.PROPERTY);
+        timeZoneField.setItemCaptionPropertyId("ID");
+        timeZoneField.setNullSelectionAllowed(false);
+        timeZoneField.setFilteringMode(FilteringMode.CONTAINS);
+        timeZoneField.addValueChangeListener(e -> {
             TimeZone newTimeZone = (TimeZone) e.getProperty().getValue();
-            testDate.setTimeZone(newTimeZone);
+            dateField.setTimeZone(newTimeZone);
             logTimeZone(newTimeZone);
         });
 
 //        if (timeZone.isPresent()) {
-//            testTimeZone.setValue(timeZone.get());
+//            timeZoneField.setValue(timeZone.get());
 //        }
         TimeZone rawTimeZoneWithOffset = TimeZone.getTimeZone("UTC");
         // we need to account for DST here, simply no way to set DST separately
         rawTimeZoneWithOffset.setRawOffset(offset);
-        testDate.setTimeZone(rawTimeZoneWithOffset);
-        testDate.setValue(requestDate);
+        dateField.setTimeZone(rawTimeZoneWithOffset);
+        dateField.setValue(requestDate);
 
-        HorizontalLayout testDateRow = new HorizontalLayout(testTimeZone, testDate);
+        HorizontalLayout testDateRow = new HorizontalLayout(timeZoneField, dateField);
         testDateRow.setCaption("Test schedule");
         testDateRow.setSpacing(true);
         layout.addComponent(testDateRow);
