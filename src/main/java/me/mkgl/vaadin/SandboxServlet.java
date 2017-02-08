@@ -7,6 +7,6 @@ import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.UI;
 
 @WebServlet(value = "/VAADIN/*", asyncSupported = true)
-@VaadinServletConfiguration(productionMode = false, ui = UI.class)
+@VaadinServletConfiguration(productionMode = false, ui = UI.class, resourceCacheTime = 0)
 public class SandboxServlet extends VaadinServlet {
 }
